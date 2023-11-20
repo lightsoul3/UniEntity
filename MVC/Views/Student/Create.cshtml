@@ -1,0 +1,32 @@
+﻿@model Student
+
+<h1>Add new Student</h1>
+
+<form method="post">
+	<div class="mb-3">
+		<label for="Fullname">Name for the Student</label>
+		<input asp-for="Fullname" class="form-control" />
+		<span asp-validation-for="Fullname"></span>
+	</div>
+	<div class="mb-3">
+		<label for="Address">Address for the Student</label>
+		<input asp-for="Address" class="form-control" />
+		<span asp-validation-for="Address"></span>
+	</div>
+	<div class="mb-3">
+		<label for="Phone">Phone for the Student</label>
+		<input asp-for="Phone" class="form-control" />
+		<span asp-validation-for="Phone"></span>
+	</div>
+	<div class="mb-3">
+		<label for="DateOfBirth">DateOfBirth for the Student</label>
+		<input asp-for="DateOfBirth" class="form-control" />
+		<span asp-validation-for="DateOfBirth"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Add Student</button>
+	<button class="btn btn-secondary">
+		<a asp-controller="Student" asp-action="Index" style="text-decoration: none; color: white;">
+			Back to Student List
+		</a>
+	</button>
+</form>

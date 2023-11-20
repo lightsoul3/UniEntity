@@ -1,0 +1,21 @@
+﻿@model Teacher
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Teacher</h1>
+
+<form method="post" asp-action="Delete">
+	<input asp-for="ID" hidden />
+	<div class="mb-3">
+		<label for="Name">Name of the Teacher</label>
+		<input asp-for="Name" class="form-control" disabled />
+		<span asp-validation-for="Name"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Delete</button>
+	<button class="btn btn-secondary">
+		<a asp-controller="Teacher" asp-action="Index" style="text-decoration: none; color: white;">
+			Back to Techers List
+		</a>
+	</button>
+</form>

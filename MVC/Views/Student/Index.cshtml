@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["success"] != null)
+{
+    <h1>@TempData["success"]</h1>
+}
+
+<h1>Student</h1>
+
+<a asp-controller="Student" asp-action="Create" class="btn btn-primary">
+    Add Student
+</a>
+@if (Model != null)
+{
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Fullname
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th>
+                    Date Of Birth
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>
+                        @student.ID
+                    </td>
+                    <td>
+                        @student.Fullname
+                    </td>
+                    <td>
+                        @student.Address
+                    </td>
+                    <td>
+                        @student.Phone
+                    </td>
+                    <td>
+                        @student.DateOfBirth
+                    </td>
+                    <td>
+                        <a asp-controller="Student" asp-action="Edit" asp-route-id="@student.ID" class="btn btn-warning">Edit</a>
+                        <a asp-controller="Student" asp-action="Delete" asp-route-id="@student.ID" class="btn btn-warning">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No students available.</p>
+}
+

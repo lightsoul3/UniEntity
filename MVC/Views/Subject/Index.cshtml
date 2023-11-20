@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Subject>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["success"] != null)
+{
+    <h1>@TempData["success"]</h1>
+}
+
+<h1>Subjects</h1>
+
+<a asp-controller="Subject" asp-action="Create" class="btn btn-primary">
+    Add Subject
+</a>
+@if (Model != null)
+{
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Max Rating
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var subject in Model)
+            {
+                <tr>
+                    <td>
+                        @subject.ID
+                    </td>
+                    <td>
+                        @subject.Name
+                    </td>
+                    <td>
+                        @subject.Rating
+                    </td>
+                    <td>
+                        <a asp-controller="Subject" asp-action="Edit" asp-route-id="@subject.ID" class="btn btn-warning">Edit</a>
+                        <a asp-controller="Subject" asp-action="Delete" asp-route-id="@subject.ID" class="btn btn-warning">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No subjects available.</p>
+}
+

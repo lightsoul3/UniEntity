@@ -1,0 +1,19 @@
+﻿@model Teacher
+@{
+	ViewData["Title"] = "Edit";
+}
+<h1>Edit Teacher</h1>
+
+<form method="post" asp-action="Edit">
+	<div class="mb-3">
+		<label for="Name">Name of the Teacher</label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Edit Teacher</button>
+	<button class="btn btn-secondary">
+		<a asp-controller="Teacher" asp-action="Index" style="text-decoration: none; color: white;">
+			Back to Techers List
+		</a>
+	</button>
+</form>

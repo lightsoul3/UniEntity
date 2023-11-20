@@ -1,0 +1,43 @@
+﻿@model Rating
+
+<h1>Add new Rating</h1>
+
+<form method="post" >
+	<div class"mb-3">
+		<label>Choose Student</label>
+		<select asp-for="StudentID" asp-items="@ViewBag.Students">
+			<option>Choose Student</option>
+		</select>
+		<span asp-validation-for="StudentID"></span>
+	</div>
+	<div class"mb-3">
+		<label>Choose Subject</label>
+		<select asp-for="SubjectID" asp-items="@ViewBag.Subjects">
+			<option>Choose Subject</option>
+		</select>
+		<span asp-validation-for="SubjectID"></span>
+	</div>
+	<div class="mb-3">
+		<label for="CurrentRating"> Current Rating of Student</label>
+		<input asp-for="CurrentRating" class="form-control" />
+		<span asp-validation-for="CurrentRating"></span>
+	</div>
+	<div class="mb-3">
+		<label for="Month"> Month of Rating</label>
+		<input asp-for="Month" class="form-control" />
+		<span asp-validation-for="Month"></span>
+	</div>
+	<div class"mb-3">
+		<label>Choose Teacher</label>
+		<select asp-for="TeacherID" asp-items="@ViewBag.Teachers">
+			<option>Choose Teacher</option>
+		</select>
+		<span asp-validation-for="TeacherID"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Add Rating</button>
+	<button class="btn btn-secondary">
+		<a asp-controller="Rating" asp-action="Index" style="text-decoration: none; color: white;">
+			Back to Ratings List
+		</a>
+	</button>
+</form>

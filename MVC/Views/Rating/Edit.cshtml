@@ -1,0 +1,54 @@
+﻿@model MVC_StudentsRating.Models.Rating
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Rating</h1>
+
+<form method="post" asp-controller="Rating" asp-action="Edit">
+    <input type="hidden" asp-for="ID" />
+
+    <div class="mb-3">
+        <label for="StudentID">Choose Student</label>
+        <select asp-for="StudentID" asp-items="@ViewBag.Students">
+            <option>Choose Student</option>
+        </select>
+        <span asp-validation-for="StudentID"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="SubjectID">Choose Subject</label>
+        <select asp-for="SubjectID" asp-items="@ViewBag.Subjects">
+            <option>Choose Subject</option>
+        </select>
+        <span asp-validation-for="SubjectID"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="CurrentRating">Current Rating of Student</label>
+        <input asp-for="CurrentRating" class="form-control" />
+        <span asp-validation-for="CurrentRating"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Month">Month of Rating</label>
+        <input asp-for="Month" class="form-control" />
+        <span asp-validation-for="Month"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="TeacherID">Choose Teacher</label>
+        <select asp-for="TeacherID" asp-items="@ViewBag.Teachers">
+            <option>Choose Teacher</option>
+        </select>
+        <span asp-validation-for="TeacherID"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit Rating</button>
+    <button class="btn btn-secondary">
+        <a asp-controller="Rating" asp-action="Index" style="text-decoration: none; color: white;">
+            Back to Rating List
+        </a>
+    </button>
+</form>

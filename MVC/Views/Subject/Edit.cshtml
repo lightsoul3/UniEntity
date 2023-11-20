@@ -1,0 +1,24 @@
+﻿@model Subject
+@{
+	ViewData["Title"] = "Edit";
+}
+<h1>Edit Subject</h1>
+
+<form method="post" asp-action="Edit">
+	<div class="mb-3">
+		<label for="Name">Name of the Subject</label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name"></span>
+	</div>
+	<div class="mb-3">
+		<label for="Rating">Max Rating of the Teacher</label>
+		<input asp-for="Rating" class="form-control" />
+		<span asp-validation-for="Rating"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Edit Subject</button>
+	<button class="btn btn-secondary">
+		<a asp-controller="Subject" asp-action="Index" style="text-decoration: none; color: white;">
+			Back to Subjects List
+		</a>
+	</button>
+</form>

@@ -1,0 +1,35 @@
+﻿@model Student
+@{
+	ViewData["Title"] = "Edit";
+}
+<h1>Delete Student</h1>
+
+<form method="post" asp-action="Delete">
+	<input asp-for="ID" hidden />
+	<div class="mb-3">
+		<label for="Fullname">Fullame of the Subject</label>
+		<input asp-for="Fullname" class="form-control" disabled />
+		<span asp-validation-for="Fullname"></span>
+	</div>
+	<div class="mb-3">
+		<label for="Address">Address of the Subject</label>
+		<input asp-for="Address" class="form-control" disabled />
+		<span asp-validation-for="Address"></span>
+	</div>
+	<div class="mb-3">
+		<label for="Phone">Phone of the Subject</label>
+		<input asp-for="Phone" class="form-control" disabled />
+		<span asp-validation-for="Phone"></span>
+	</div>
+	<div class="mb-3">
+		<label for="DateOfBirth">Date Of Birth of the Subject</label>
+		<input asp-for="DateOfBirth" class="form-control" disabled />
+		<span asp-validation-for="DateOfBirth"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Delete</button>
+	<button class="btn btn-secondary">
+		<a asp-controller="Student" asp-action="Index" style="text-decoration: none; color: white;">
+			Back to Studnets List
+		</a>
+	</button>
+</form>

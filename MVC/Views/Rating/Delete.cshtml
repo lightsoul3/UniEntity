@@ -1,0 +1,42 @@
+﻿@model Rating
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Employee's Project</h1>
+
+<form method="post" asp-action="Delete">
+	<input asp-for="ID" hidden />
+	<div class="mb-3">
+		<label for="StudentID"> Id of the student</label>
+		<input asp-for="StudentID" class="form-control" disabled />
+		<span asp-validation-for="StudentID"></span>
+	</div>
+	<div class="mb-3">
+		<label for="SubjectID">Id of the subject</label>
+		<input asp-for="SubjectID" class="form-control" disabled />
+		<span asp-validation-for="SubjectID"></span>
+	</div>
+	<div class="mb-3">
+		<label for="CurrentRating">Current Rating</label>
+		<input asp-for="CurrentRating" class="form-control" disabled />
+		<span asp-validation-for="CurrentRating"></span>
+	</div>
+	<div class="mb-3">
+		<label for="TeacherID">Days worked for the employee</label>
+		<input asp-for="TeacherID" class="form-control" disabled />
+		<span asp-validation-for="TeacherID"></span>
+	</div>
+	<div class="mb-3">
+		<label for="Month">Days worked for the employee</label>
+		<input asp-for="Month" class="form-control" disabled />
+		<span asp-validation-for="Month"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Delete</button>
+	<button class="btn btn-secondary">
+		<a asp-controller="Rating" asp-action="Index" style="text-decoration: none; color: white;">
+			Return to all Ratings
+		</a>
+	</button>
+</form>
+

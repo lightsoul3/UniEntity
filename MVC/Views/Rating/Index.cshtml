@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Rating>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["success"] != null)
+{
+    <h1>@TempData["success"]</h1>
+}
+
+<h1>Ratings</h1>
+
+<a asp-controller="Rating" asp-action="Create" class="btn btn-primary">
+    Add Rating
+</a>
+@if (Model != null)
+{
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Student Name
+                </th>
+                <th>
+                    Subject Name
+                </th>
+                <th>
+                    Subject Max Rating
+                </th>
+                <th>
+                    Current Rating
+                </th>
+                <th>
+                    Month
+                </th>
+                <th>
+                    Teacher
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rating in Model)
+            {
+                <tr>
+                    <td>
+                        @rating.ID
+                    </td>
+                     <td>
+                        @rating.Student.Fullname
+                    </td>
+                    <td>
+                        @rating.Subject.Name
+                    </td>
+                    <td>
+                        @rating.Subject.Rating
+                    </td>
+                    <td>
+                        @rating.CurrentRating
+                    </td>
+                    <td>
+                        @rating.Month
+                    </td>
+                    <td>
+                        @rating.Teacher.Name
+                    </td>
+                    <td>
+                        <a asp-controller="Rating" asp-action="Edit" asp-route-id="@rating.ID" class="btn btn-warning">Edit</a>
+                        <a asp-controller="Rating" asp-action="Delete" asp-route-id="@rating.ID" class="btn btn-warning">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No ratings available.</p>
+}
+
